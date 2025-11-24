@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Stripe In-Class Exercise</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Team Stripe</h2>
+      <p id="sidebar-welcome">Welcome! Choose a section to get started.</p>
+      <ul>
+        <li class="active" data-section="welcome">Welcome</li>
+        <li data-section="plans">Select Plan</li>
+        <li data-section="payment">Make Payment</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Welcome Section -->
+      <section id="welcome" class="content active">
+        <h1>Welcome to Our In-Class Stripe Exercise!</h1>
+        <p>Follow the sidebar to choose a plan and make a test payment.</p>
+      </section>
+
+      <!-- Plans Section -->
+      <section id="plans" class="content">
+        <h1>Select a Plan</h1>
+        <div class="plans">
+          <button class="plan active" data-amount="5">$5 Plan</button>
+          <button class="plan" data-amount="10">$10 Plan</button>
+          <button class="plan" data-amount="20">$20 Plan</button>
+          <!-- Added custom amount input -->
+          <input type="number" id="custom-amount" placeholder="Custom amount" min="1" style="margin-left:10px;">
+        </div>
+      </section>
+
+      <!-- Payment Section -->
+      <section id="payment" class="content">
+        <h1>Make Payment</h1>
+        <div class="payment-box">
+          <p>Selected Plan: <span id="selected-plan">$5</span></p>
+          <div id="card-element" style="margin-top:15px;"></div>
+          <button id="pay-button">Pay</button>
+          <div id="payment-message"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+    <!-- Confetti Sound -->
+    <audio id="confetti-sound" src="confetti.mp3" preload="auto"></audio>
+
+    <!-- Celebration GIF -->
+    <img id="confetti-gif" src="celebration.gif" alt="celebration" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); max-width:300px; z-index:9999;">
+
+    <!-- Fail Sound -->
+    <audio id="fail-sound" src="fail.mp3"></audio>
+
+  <script src="frontend.js"></script>
+</body>
+</html>
